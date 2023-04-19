@@ -1,0 +1,49 @@
+on: pull_request
+name: Review
+jobs:
+  changelog:
+    runs-on: ubuntu-latest
+    name: Changelog should be updated
+    strategy:
+      fail-fast: false
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 2
+
+      - name: Git fetch
+        run: git fetch
+
+      - name: Check that changelog has been updated.
+        run: git diff --exit-code origin/${{ github.base_ref }} -- CHANGELOG.md && exit 1 || exit 0
+
+  php-coding-standards:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+    name: PHP coding standards
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Create frontend network
+        run: docker network create frontend
+      - name: Start docker compose setup
+        run: docker compose up --detach
+      - name: Install Dependencies
+        run: docker compose exec --user=root phpfpm composer install
+      - name: Check coding standards
+        run: docker compose exec --user=root phpfpm composer coding-standards-check
+
+  markdownlint:
+    runs-on: ubuntu-latest
+    name: markdownlint
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Create frontend network
+        run: docker network create frontend
+      - name: Install dependencies
+        run: docker compose run --rm node yarn install
+      - name: Check coding standards
+        run: docker compose run --rm node yarn coding-standards-check

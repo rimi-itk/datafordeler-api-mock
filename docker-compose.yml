@@ -72,3 +72,11 @@ services:
       - "traefik.docker.network=frontend"
       - "traefik.http.routers.${COMPOSE_PROJECT_NAME}Mailhog.rule=Host(`mailhog-${COMPOSE_DOMAIN}`)"
       - "traefik.http.services.${COMPOSE_PROJECT_NAME}Mailhog.loadbalancer.server.port=8025"
+
+  node:
+    image: node:18
+    networks:
+      - app
+    volumes:
+      - .:/app:delegated
+    working_dir: /app
