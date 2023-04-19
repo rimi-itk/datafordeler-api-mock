@@ -1,0 +1,27 @@
+ # https://confluence.sdfi.dk/pages/viewpage.action?pageId=13664468
+-
+  virksomhed:
+    CVRNummer: '19435075'
+  virksomhedsnavn:
+    vaerdi: 'KOMBIT A/S'
+  beliggenhedsadresse:
+    CVRAdresse_vejnavn: Halfdansgade
+    CVRAdresse_husnummerFra: '8'
+    # CVRAdresse_etagebetegnelse: null
+    # CVRAdresse_doerbetegnelse: null
+    CVRAdresse_postnummer: '2300'
+    CVRAdresse_postdistrikt: København S
+    # CVRAdresse_kommunekode:
+
+-
+  virksomhed:
+    CVRNummer: '43486829'
+  virksomhedsnavn:
+    vaerdi: 'grillkylling.nu'
+  beliggenhedsadresse:
+    CVRAdresse_vejnavn: Honningvænget
+    CVRAdresse_husnummerFra: '81'
+    CVRAdresse_etagebetegnelse: '1.'
+    CVRAdresse_doerbetegnelse: '1'
+    CVRAdresse_postnummer: '8381'
+    CVRAdresse_postdistrikt: Tilst
