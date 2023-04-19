@@ -6,6 +6,22 @@ docker composer exec phpfpm composer install
 open "http://$(docker compose post 8080)"
 ```
 
+## REST (CVR)
+
+<https://confluence.sdfi.dk/pages/viewpage.action?pageId=17139087>
+
+### REST - HentCVRData
+
+<https://confluence.sdfi.dk/pages/viewpage.action?pageId=17139087#REST(CVR)-REST-HentCVRData>
+
+#### Metode - hentVirksomhedMedCVRNummer
+
+<https://confluence.sdfi.dk/pages/viewpage.action?pageId=17139087#REST(CVR)-Metode-hentVirksomhedMedCVRNummer>
+
+`/CVR/HentCVRData/1/rest/hentVirksomhedMedCVRNummer?pCVRNummer=xxxxxxxx`
+
+Omit the `pCVRNummer` parameter to see all known values.
+
 ## Coding standards
 
 ```sh
